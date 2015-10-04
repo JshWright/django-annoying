@@ -26,6 +26,7 @@ urlpatterns = patterns('',)
 if __name__ == '__main__':
     # override get_app to work with us
     get_app_orig = models.get_app
+
     def get_app(app_label, *a, **kw):
         if app_label == this:
             return sys.modules[__name__]
