@@ -89,11 +89,11 @@ def render_to(template=None, content_type=None, mimetype=None):
                 tmpl = os.path.join(template_dir, function.func_name + ".html")
             # Explicit version check to avoid swallowing other exceptions
             if DJANGO_VERSION[0] >= 1 and DJANGO_VERSION[1] >= 3:
-                return render_to_response(tmpl, output, \
+                return render_to_response(tmpl, output,
                         context_instance=RequestContext(request),
                         content_type=content_type or mimetype)
             else:
-                return render_to_response(tmpl, output, \
+                return render_to_response(tmpl, output,
                         context_instance=RequestContext(request),
                         mimetype=content_type or mimetype)
         return wrapper
